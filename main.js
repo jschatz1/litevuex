@@ -24,13 +24,13 @@ export default {
 
     makeDispatchable(store) {
         store.dispatch = function(action) {
-            store.actions[action]();
+            store.actions[action](store);
         }
     },
 
     makeCommitable(store) {
         store.commit = function(commit) {
-            store.mutations[commit]();
+            store.mutations[commit](store);
         }
     },
 
