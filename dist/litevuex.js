@@ -1,5 +1,5 @@
 /**
- * litevuex v0.1.445
+ * litevuex v0.1.446
  * (c) 2018 Jacob Schatz
  * @license MIT
  */
@@ -34,8 +34,8 @@
         },
 
         makeDispatchable: function makeDispatchable(store) {
-            store.dispatch = function(action) {
-                store.actions[action](store);
+            store.dispatch = function(action, val) {
+                store.actions[action](store, val);
             };
         },
 

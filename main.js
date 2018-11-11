@@ -23,8 +23,8 @@ export default {
     },
 
     makeDispatchable(store) {
-        store.dispatch = function(action) {
-            store.actions[action](store);
+        store.dispatch = function(action, val) {
+            store.actions[action](store, val);
         }
     },
 
