@@ -1,5 +1,5 @@
 /**
- * litevuex v0.1.44
+ * litevuex v0.1.442
  * (c) 2018 Jacob Schatz
  * @license MIT
  */
@@ -31,13 +31,13 @@ var main = {
         this.makeCommitable(store);
     },
 
-    makeDispatchable: function makeDispatchable() {
+    makeDispatchable: function makeDispatchable(store) {
         store.dispatch = function(action) {
             store.actions[action]();
         };
     },
 
-    makeCommitable: function makeCommitable() {
+    makeCommitable: function makeCommitable(store) {
         store.commit = function(commit) {
             store.mutations[commit]();
         };
