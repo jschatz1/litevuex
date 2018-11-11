@@ -1,21 +1,23 @@
-# vuexlite
+# LiteVuex
 
 ```
 npm i litevuex
 ```
 
+A tiny Vuex. For funzies
+
 **store.js**
 ```javascript
 import Vue from "vue";
-import Litevuex from "litevuex";
+import LiteVuex from "litevuex";
 
-Vue.use(Litevuex);
+Vue.use(LiteVuex);
 
 let store = {
     msg: "No sir",
 };
 
-Vuexlite.hug(store);
+LiteVuex.hug(store);
 
 export default store
 ```
