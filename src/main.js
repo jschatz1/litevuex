@@ -1,8 +1,22 @@
-import Vue from 'vue';
-import App from './App.vue';
+import Vue from "vue";
 
-Vue.config.productionTip = false;
+export default {
+    install(_vue) {
+        _vue.mixin({beforeCreate: function() {
+            const options = this.$options;
+            if(options.store) {
+                this.$store = options.store;
+            } else if (options.parent && options.parent.$store) {
+                this.$store = options.parent.$store
+            }
+        }});
+    },
 
-new Vue({
-  render: h => h(App),
-}).$mount('#app');
+    hug(store) {
+        new Vue({
+            data() {
+                return store;
+            }
+        })
+    }
+}
