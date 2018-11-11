@@ -15,8 +15,24 @@ export default {
     hug(store) {
         new Vue({
             data() {
-                return store;
+                return store.state;
             }
         })
-    }
+        this.makeDispatchable(store);
+        this.makeCommitable(store);
+    },
+
+    makeDispatchable() {
+        store.dispatch = function(action) {
+            store.actions[action]();
+        }
+    },
+
+    makeCommitable() {
+        store.commit = function(commit) {
+            store.mutations[commit]();
+        }
+    },
+
+    
 }
