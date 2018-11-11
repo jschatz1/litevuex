@@ -1,7 +1,9 @@
 {
   "name": "litevuex",
-  "version": "0.1.42",
+  "version": "0.1.43",
   "license": "MIT",
+  "main": "dist/litevuex.common.js",
+  "module": "dist/litevuex.esm.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "node ./build/build.main.js",
