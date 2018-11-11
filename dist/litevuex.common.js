@@ -1,5 +1,5 @@
 /**
- * litevuex v0.1.41
+ * litevuex v0.1.44
  * (c) 2018 Jacob Schatz
  * @license MIT
  */
@@ -24,10 +24,26 @@ var main = {
     hug: function hug(store) {
         new Vue({
             data: function data() {
-                return store;
+                return store.state;
             }
         });
-    }
+        this.makeDispatchable(store);
+        this.makeCommitable(store);
+    },
+
+    makeDispatchable: function makeDispatchable() {
+        store.dispatch = function(action) {
+            store.actions[action]();
+        };
+    },
+
+    makeCommitable: function makeCommitable() {
+        store.commit = function(commit) {
+            store.mutations[commit]();
+        };
+    },
+
+    
 };
 
 module.exports = main;
