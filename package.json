@@ -1,6 +1,6 @@
 {
   "name": "litevuex",
-  "version": "0.1.444",
+  "version": "0.1.445",
   "license": "MIT",
   "main": "dist/litevuex.common.js",
   "module": "dist/litevuex.esm.js",

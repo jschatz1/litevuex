@@ -29,8 +29,8 @@ export default {
     },
 
     makeCommitable(store) {
-        store.commit = function(commit) {
-            store.mutations[commit](store);
+        store.commit = function(commit, val) {
+            store.mutations[commit](store, val);
         }
     },
 
