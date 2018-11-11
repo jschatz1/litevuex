@@ -1,6 +1,6 @@
 /**
- * litevuex v0.1.3
- * (c) 2018 Evan You
+ * litevuex v0.1.41
+ * (c) 2018 Jacob Schatz
  * @license MIT
  */
 'use strict';
