@@ -1,6 +1,6 @@
 {
   "name": "litevuex",
-  "version": "0.1.41",
+  "version": "0.1.42",
   "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
