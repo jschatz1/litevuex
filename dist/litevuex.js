@@ -1,12 +1,20 @@
-var litevuex = (function (Vue) {
-    'use strict';
+/**
+ * litevuex v0.1.3
+ * (c) 2018 Evan You
+ * @license MIT
+ */
+(function (global, factory) {
+    typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('vue')) :
+    typeof define === 'function' && define.amd ? define(['vue'], factory) :
+    (global.Vuex = factory(global.Vue));
+}(this, (function (Vue) { 'use strict';
 
     Vue = Vue && Vue.hasOwnProperty('default') ? Vue['default'] : Vue;
 
     var main = {
-        install(_vue) {
+        install: function install(_vue) {
             _vue.mixin({beforeCreate: function() {
-                const options = this.$options;
+                var options = this.$options;
                 if(options.store) {
                     this.$store = options.store;
                 } else if (options.parent && options.parent.$store) {
@@ -15,9 +23,9 @@ var litevuex = (function (Vue) {
             }});
         },
 
-        hug(store) {
+        hug: function hug(store) {
             new Vue({
-                data() {
+                data: function data() {
                     return store;
                 }
             });
@@ -26,4 +34,4 @@ var litevuex = (function (Vue) {
 
     return main;
 
-}(Vue));
+})));
