@@ -9,17 +9,29 @@ A tiny Vuex. For funzies
 **store.js**
 ```javascript
 import Vue from "vue";
-import LiteVuex from "litevuex";
+import litevuex from "litevuex";
 
-Vue.use(LiteVuex);
+Vue.use(litevuex);
 
 let store = {
-    msg: "No sir",
+    state: {
+      msg: "No sir"
+    },
+    actions: {
+      inputChanged($store, val) {
+        $store.commit('setMessage', val)
+      }
+    },
+    mutations: {
+      setMessage($store, val) {
+        $store.state.msg = val;
+      }
+    }
 };
 
-LiteVuex.hug(store);
+litevuex.hug(store);
 
-export default store
+export default store;
 ```
 
 **main.js**
@@ -40,19 +52,16 @@ new Vue({
 <template>
   <div id="app">
     <input type="text" @input="inputted">
-    <h1>{{$store.msg}}</h1>
+    <h1>{{$store.state.msg}}</h1>
   </div>
 </template>
 
 <script>
 export default {
   name: 'app',
-  created() {
-    console.log(this.$store)
-  },
   methods: {
     inputted(e) {
-      this.$store.msg = e.target.value;
+      this.$store.dispatch('inputChanged', e.target.value);
     }
   }
 }
