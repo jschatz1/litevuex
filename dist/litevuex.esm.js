@@ -1,5 +1,5 @@
 /**
- * litevuex v0.1.446
+ * litevuex v0.1.447
  * (c) 2018 Jacob Schatz
  * @license MIT
  */
